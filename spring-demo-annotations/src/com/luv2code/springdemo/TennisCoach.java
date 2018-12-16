@@ -3,9 +3,10 @@ package com.luv2code.springdemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
 
 @Component ("sillyCoach")
-public class TennisCoach implements Coach {
+public class TennisCoach implements Coach, FortuneService {
 	@Autowired
 	@Qualifier ("randomFortuneService")
 	private FortuneService fortuneService;
@@ -20,7 +21,9 @@ public class TennisCoach implements Coach {
 //		System.out.println("<<TennisCoach>> Inside setFortuneService....");
 //	}
 	
-	
+	public String getFortune() {
+		return "asd";
+	}
 	
 		
 	public String getDailyWorkout() {
